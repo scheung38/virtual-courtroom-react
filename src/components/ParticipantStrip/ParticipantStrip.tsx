@@ -9,8 +9,8 @@ const Container = styled('aside')(({ theme }) => ({
   position: 'absolute',
   top: 0,
   bottom: 0,
-  right: `calc(100% - ${theme.sidebarWidth}px)`,
-  left: 0,
+  right: 0,
+  left: `calc(100% - ${theme.sidebarWidth}px)`,
   padding: '0.5em',
   overflowY: 'auto',
 }));
