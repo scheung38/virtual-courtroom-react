@@ -24,6 +24,28 @@ app.get('/token', (req, res) => {
   console.log(`issued token for ${identity} in room ${roomName}`);
 });
 
+// http://localhost:8081/create_small_group_room
+app.post('/create_small_group_room', (req, res) => {
+
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.TWILIO_authToken;
+    const client = require('twilio')(accountSid, authToken);
+    const faker = require('faker')
+    const firstname = faker.fake("{{name.firstName}}")
+    console.log("API from console:",firstname)
+
+    client.video.rooms
+        .create({
+            recordParticipantsOnConnect: true,
+            statusCallback: 'http://example.org',
+            type: 'group-small',
+            uniqueName: 'PrivateCourtRoom_'+firstname
+        })
+        .then(room => res.send(room))
+        .then(room => console.log('API response: ', room))
+        .catch(err => console.error(err));
+})
+
 app.get('*', (_, res) => res.sendFile(path.join(__dirname, 'build/index.html')));
 
 app.listen(8081, () => console.log('token server running on 8081'));
