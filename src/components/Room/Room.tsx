@@ -4,7 +4,7 @@ import { styled } from '@material-ui/core/styles';
 
 import JudgeParticipant from '../JudgeParticipant/JudgeParticipant';
 import ClerkParticipant from '../ClerkParticipant/ClerkParticipant';
-import DefendantParticipant from '../DefendantParticipant/DefendenseParticipant'
+import DefendantParticipant from '../DefendantParticipant/DefendantParticipant'
 import DefenseCounselParticipant from '../DefenseCounselParticipant/DefenseCounselParticipant'
 import PlaintiffParticipant from '../PlaintiffParticipant/PlaintiffParticipant';
 import PlaintiffCounselParticipant from '../PlaintiffCounselParticipant/PlaintiffCounselParticipant'
