@@ -10,6 +10,8 @@ const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
 const twilioApiKeySID = process.env.TWILIO_API_KEY_SID;
 const twilioApiKeySecret = process.env.TWILIO_API_KEY_SECRET;
 
+const authToken = process.env.TWILIO_authToken;
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/token', (req, res) => {
@@ -27,9 +29,7 @@ app.get('/token', (req, res) => {
 // http://localhost:8081/create_small_group_room
 app.post('/create_small_group_room', (req, res) => {
 
-    const accountSid = process.env.TWILIO_ACCOUNT_SID;
-    const authToken = process.env.TWILIO_authToken;
-    const client = require('twilio')(accountSid, authToken);
+    const client = require('twilio')(twilioAccountSid, authToken);
     const faker = require('faker')
     const firstname = faker.fake("{{name.firstName}}")
     console.log("API from console:",firstname)

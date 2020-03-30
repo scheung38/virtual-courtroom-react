@@ -7,6 +7,11 @@ import MenuBar from './components/MenuBar/MenuBar';
 import ReconnectingNotification from './components/ReconnectingNotification/ReconnectingNotification';
 import Room from './components/Room/Room';
 
+import VideoComponent from "./VideoComponent";
+
+// /Users/miriam-z/WebstormProjects/virtual-courtroom-react/src/App.tsx
+// /Users/miriam-z/WebstormProjects/virtual-courtroom-react/src/VideoComponent.js
+
 import useRoomState from './hooks/useRoomState/useRoomState';
 
 const Container = styled('div')({
@@ -25,8 +30,11 @@ export default function App() {
 
   return (
     <Container>
+
       <MenuBar />
+
       <Main>
+          <VideoComponent/>
         {roomState === 'disconnected' ? <LocalVideoPreview /> : <Room />}
         <Controls />
       </Main>
